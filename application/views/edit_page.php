@@ -15,7 +15,7 @@
 
 <p>
 <label>Campaign Name
-<input type="text" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _-`~^|:<.{>}]*$" name="c_name" value="<?php echo $campaign[0]->c_name?>" required>
+<input type="text" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _-`~^|:.{}]*$" name="c_name" value="<?php echo $campaign[0]->c_name?>" required>
 </label> 
 </p><br/>
 
