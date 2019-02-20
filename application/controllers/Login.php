@@ -16,9 +16,12 @@
 
             // Validate the user can login
             $result = $this->Employee_Model->validate($employee_url);
+            // echo $result;
+            // return;
             // Now we verify the result
             if(! $result){
                 // If user did not validate, then show them login page again
+
                 redirect(''.$employee_url."/login");
             }else{
                 // If user did validate, 

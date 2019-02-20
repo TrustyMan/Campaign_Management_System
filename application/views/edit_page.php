@@ -15,7 +15,7 @@
 
 <p>
 <label>Campaign Name
-<input type="text" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _-`~^|:.{}]*$" name="c_name" value="<?php echo $campaign[0]->c_name?>" required>
+<input type="text" pattern="^[A-Za-z0-9 _$-_.+!*()]*[A-Za-z0-9][A-Za-z0-9 _$-_.+!*()]*$" name="c_name" value="<?php echo $campaign[0]->c_name?>" required>
 </label> 
 </p><br/>
 
@@ -54,7 +54,7 @@
 	<?php
 		echo "<input style='width:3em; float:initial;' type='radio' name='search_engine' value='google' ";
 		if($campaign[0]->search_engine == 'google') echo "checked";
-		echo ">Google"; 
+		echo ">Google";
 	?>
 </label> 
 <label style="float: left" class="radio-inline">

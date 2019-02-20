@@ -10,10 +10,12 @@
             $this->db = $this->load->database("default", true);
         }
         
-        public function validate($employee_url){
-            //ipinfo grabs the ip of the person requesting
+                
+        public function validate($employee_url){  
+            $IP_address = $this->input->ip_address();
 
-            $getloc = json_decode(file_get_contents("http://ipinfo.io/"));
+            //ipinfo grabs the ip of the person requesting
+            $getloc = json_decode(file_get_contents("http://ipinfo.io/".$IP_address));
             echo $getloc->country; //to get country
             if($getloc->country != "US") return false;
 
@@ -28,9 +30,7 @@
             if($query->num_rows() == 1)
             {
                 // If there is a user, then create session data
-                $row = $query->row();
-
-                $IP_address = $this->input->ip_address();
+                $row = $query->row();                
                 $browser_UA = $this->agent->agent_string();
                 $sql = "SELECT * FROM campaign WHERE employee_url='".$employee_url."'";
                 $query = $this->db->query($sql);

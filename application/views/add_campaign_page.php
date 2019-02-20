@@ -12,6 +12,25 @@
 
 <form class="myForm" method="post" enctype="application/x-www-form-urlencoded" action="<?php echo base_url();?>add_campaign/addCampaign" target="_self">
 <h1>Add Campaign</h1><br/>
+
+<p>
+<label>Name of Campaign
+<input type="text" name="c_name" pattern="^[A-Za-z0-9 _$-_.+!*()]*[A-Za-z0-9][A-Za-z0-9 _$-_.+!*()]*$" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Keywords to use for Search
+<input type="text" name="keywords" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Site Url
+<input type="url" name="site_url" required>
+</label>
+</p><br/>
+
 <p>
 <label>Page Title to search for in Results
 <input type="text" name="page_title" required>
@@ -25,20 +44,8 @@
 </p><br/>
 
 <p>
-<label>Name of Campaign
-<input type="text" name="c_name" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _-`~^|:.{}]*$" required>
-</label> 
-</p><br/>
-
-<p>
 <label>Name of Verification Page
 <input type="text" name="v_page_name" required>
-</label> 
-</p><br/>
-
-<p>
-<label>Keywords to use for Search
-<input type="text" name="keywords" required>
 </label> 
 </p><br/>
 
@@ -54,11 +61,7 @@
 </label>
 </p><br/><br>
 
-<p>
-<label>Site Url
-<input type="url" name="site_url" required>
-</label>
-</p><br/>
+
 
 <p style="display: none">
 <label>client name
