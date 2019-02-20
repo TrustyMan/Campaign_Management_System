@@ -26,7 +26,7 @@
 
 <p>
 <label>Name of Campaign
-<input type="text" name="c_name" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$" required>
+<input type="text" name="c_name" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _-`~^|:/<.{>}]*$" required>
 </label> 
 </p><br/>
 
