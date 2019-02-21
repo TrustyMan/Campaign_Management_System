@@ -38,7 +38,14 @@
             // print_r($result);
             // return;
             // if(! $result) return;
+            $result = $this->Employee_Model->ConfirmUS();
+            // if(!$result) {
+            //     $message = "This IP Address does not match the targeted geolocation for this campaign";
+            //     echo "<script type='text/javascript'>alert('$message');</script>";
+            //     // redirect(''.$employee_url."/login");
+            // }
             $data["employee_url"] = $employee_url;
+            $data["result"] = $result;
             $this->load->view('employee_login', $data);
         }
 

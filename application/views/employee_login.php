@@ -6,6 +6,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="referrer" content="no-referrer" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/style_employee_login.css">
+<script src="<?php echo base_url();?>assets/js/jquery-1.11.1.min.js"></script>
 <title></title>
 
 </head>
@@ -20,8 +21,15 @@
 </label>
 </p>
 <p><button style="float: right">Submit</button></p>
-
+<input type="text" name="result" value="<?php echo $result;?>" style="display: none">
 </form>
 
 </body>
+<script type="text/javascript">
+	var result = $("input[name='result']").val();
+	if(! result) {
+		alert("This IP Address does not match the targeted geolocation for this campaign");
+		$("input[name='password']").prop('disabled', true);
+	}
+</script>
 </html>

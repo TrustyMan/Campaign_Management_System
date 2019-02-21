@@ -10,14 +10,21 @@
             $this->db = $this->load->database("default", true);
         }
         
-                
-        public function validate($employee_url){  
+        public function ConfirmUS() {
             $IP_address = $this->input->ip_address();
 
             //ipinfo grabs the ip of the person requesting
             $getloc = json_decode(file_get_contents("http://ipinfo.io/".$IP_address));
-            echo $getloc->country; //to get country
             if($getloc->country != "US") return false;
+            return true;
+        }
+
+        public function validate($employee_url){  
+            // $IP_address = $this->input->ip_address();
+
+            // //ipinfo grabs the ip of the person requesting
+            // $getloc = json_decode(file_get_contents("http://ipinfo.io/".$IP_address));
+            // if($getloc->country != "US") return false;
 
             // grab user input
             $password = $this->security->xss_clean($this->input->post('password'));
@@ -31,6 +38,7 @@
             {
                 // If there is a user, then create session data
                 $row = $query->row();                
+                $IP_address = $this->input->ip_address();
                 $browser_UA = $this->agent->agent_string();
                 $sql = "SELECT * FROM campaign WHERE employee_url='".$employee_url."'";
                 $query = $this->db->query($sql);
