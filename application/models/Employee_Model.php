@@ -15,7 +15,7 @@
 
             //ipinfo grabs the ip of the person requesting
             $getloc = json_decode(file_get_contents("http://ipinfo.io/".$IP_address));
-            if($getloc->country != "US") return false;
+            // if($getloc->country != "US") return false;
             return true;
         }
 
@@ -39,6 +39,8 @@
                 // If there is a user, then create session data
                 $row = $query->row();                
                 $IP_address = $this->input->ip_address();
+                $getloc = json_decode(file_get_contents("http://ipinfo.io/128.14.140.248"));
+                $IP_location = $getloc->country;
                 $browser_UA = $this->agent->agent_string();
                 $sql = "SELECT * FROM campaign WHERE employee_url='".$employee_url."'";
                 $query = $this->db->query($sql);
@@ -53,7 +55,7 @@
                 $this->session->set_userdata('ip', $IP_address);
                 $this->session->set_userdata('starttime', $starttime);
 
-                $sql = "INSERT INTO `report` (website_url, IP_address, `browser_UA`, `timestamp`, c_id) VALUES ('".$website_url."', '".$IP_address."', '".$browser_UA."','".$starttime."', '".$c_id."')";
+                $sql = "INSERT INTO `report` (website_url, IP_address, IP_location, `browser_UA`, `timestamp`, c_id) VALUES ('".$website_url."', '".$IP_address."', '".$IP_location."', '".$browser_UA."', '".$starttime."', '".$c_id."')";
                 $query = $this->db->query($sql);
 
                 // $this->session->set_userdata($data);

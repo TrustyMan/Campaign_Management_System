@@ -19,7 +19,7 @@
 <?php echo $defaults[0]->default_text1;?>
 </textarea>
 </label>
-</p><br><br><br><br><br>
+</p><br><br><br>
 
 <p>
 <label>Default Text2
@@ -27,13 +27,52 @@
 <?php echo $defaults[0]->default_text2;?>
 </textarea>
 </label>
-</p><br><br><br><br>
+</p><br><br><br>
 
 <p>
 <label>Default Employee Password
 <input type="text" name="default_employee_password" value="<?php echo $defaults[0]->default_employee_password;?>" required>
 </label> 
 </p>
+
+<p>
+<label>Default Target Location
+<select id="select_location" name="default_target_location">
+	<?php
+		$location = ["United States", "United Kingdom", "New Zealand", "Switzerland", "North Macedonia"];
+		foreach ($location as $key => $value) {
+		 	echo "<option>".$value."</option>";
+		 }
+
+	?>
+</select>
+</label> 
+</p>
+
+<p>
+<label>Default Bid
+<input type="number" name="default_bid" value="<?php echo $defaults[0]->default_bid;?>" required>
+</label> 
+</p>
+
+<p>
+<label>Default Speed
+<input type="number" name="default_speed" value="<?php echo $defaults[0]->default_speed;?>" required>
+</label> 
+</p>
+
+<p>
+<label>Default Positions
+<input type="number" name="default_positions" value="<?php echo $defaults[0]->default_positions;?>" required>
+</label> 
+</p>
+
+<p>
+<label>Default Target per day
+<input type="number" name="default_target_per_day" value="<?php echo $defaults[0]->default_target_per_day;?>" required>
+</label> 
+</p>
+
 <p><button style="float:right">Submit</button></p>
 
 </form>

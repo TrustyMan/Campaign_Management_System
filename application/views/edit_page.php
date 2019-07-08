@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<!-- <link rel="stylesheet" href="<?php echo base_url();?>assets/css/semantic.min.css"/> -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/css/style_change_defaults.css">
+<!-- <script src="<?php echo base_url();?>assets/js/jquery-1.11.1.min.js"></script> -->
+<!-- <script type="text/javascript" src="<?php echo base_url();?>assets/js/semantic.min.js"></script> -->
 <title></title>
 <style type="text/css">
 	[data-tip] {
@@ -96,6 +99,48 @@
 </p><br/>
 
 <p>
+<label>Target Location
+<select id="select_location" name="target_location">
+	<?php
+		$location = ["US", "UK", "NZ", "JP", "CN"];
+		foreach ($location as $key => $value) {
+		 	echo '<option ';
+		 	if($campaign[0]->target_location == $value) {
+		 		echo 'selected';
+		 	}
+		 	echo '>'.$value.'</option>';
+		 }
+
+	?>
+</select>
+</label> 
+</p><br/>
+
+<p>
+<label>Bid
+<input type="number" name="bid" value="<?php echo $campaign[0]->bid?>" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Speed
+<input type="number" name="speed" value="<?php echo $campaign[0]->speed?>" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Positions
+<input type="number" name="positions" value="<?php echo $campaign[0]->positions?>" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Target per day
+<input type="number" name="target_per_day" value="<?php echo $campaign[0]->target_per_day?>" required>
+</label> 
+</p><br/>
+
+<p>
 <label style="float: left; margin-left:11em" class="radio-inline">Select Search Engine
 	<?php
 		echo "<input style='width:3em; float:initial;' type='radio' name='search_engine' value='google' ";
@@ -120,6 +165,7 @@
 <!-- <input style="width:3em; float:initial;" type="radio" name="search_engine" value="bing">Bing -->
 </label>
 </p><br/><br>
+
 
 
 

@@ -96,6 +96,44 @@
 </p><br/>
 
 <p>
+<label>Target Location
+<select id="select_location" name="target_location">
+	<?php
+		$location = ["US", "UK", "NZ", "JP", "CN"];
+		foreach ($location as $key => $value) {
+		 	echo "<option>".$value."</option>";
+		 }
+
+	?>
+</select>
+</label> 
+</p><br/>
+
+<p>
+<label>Bid
+<input type="number" name="bid" value="" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Speed
+<input type="number" name="speed" value="" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Positions
+<input type="number" name="positions" value="" required>
+</label> 
+</p><br/>
+
+<p>
+<label>Target per day
+<input type="number" name="target_per_day" value="" required>
+</label> 
+</p><br/>
+
+<p>
 <label style="float: left; margin-left:11em" class="radio-inline">Select Search Engine
 <input style="width:3em; float:initial;" type="radio" name="search_engine" value="google" checked>Google
 </label> 

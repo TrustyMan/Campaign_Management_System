@@ -11,7 +11,7 @@
         }
 
         public function deleteCampaign(){
-            $c_id = $this->session->userdata('c_id');
+            $c_id = $_POST['c_id'];
             $this->Load_Model->deleteCampaign($c_id);
         }
         

@@ -25,7 +25,7 @@ date_default_timezone_set('America/Los_Angeles');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://104.196.121.148/campaign/';
+$config['base_url'] = 'http://localhost/campaign/';
 
 /*
 |--------------------------------------------------------------------------

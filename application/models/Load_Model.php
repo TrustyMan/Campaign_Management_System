@@ -55,7 +55,13 @@
             $search_engine = $this->security->xss_clean($this->input->post('search_engine'));
             $site_url = $this->security->xss_clean($this->input->post('site_url'));
             $client = $this->security->xss_clean($this->input->post('client'));
-            $sql = "INSERT INTO campaign (c_name, page_title, v_url, v_page_name, keywords, search_engine, site_url, client, employee_url, v_code) VALUES ('".$c_name."','".$page_title."','".$v_url."','".$v_page_name."','".$keywords."','".$search_engine."','".$site_url."','".$client."','".$employee_url."', '".$v_code."')";
+            $target_location = $this->security->xss_clean($this->input->post('target_location'));
+            $bid = $this->security->xss_clean($this->input->post('bid'));
+            $speed = $this->security->xss_clean($this->input->post('speed'));
+            $positions = $this->security->xss_clean($this->input->post('positions'));
+            $target_per_day = $this->security->xss_clean($this->input->post('target_per_day'));
+
+            $sql = "INSERT INTO campaign (c_name, page_title, v_url, v_page_name, keywords, search_engine, site_url, client, employee_url, v_code, target_location, bid, speed, positions, target_per_day) VALUES ('".$c_name."','".$page_title."','".$v_url."','".$v_page_name."','".$keywords."','".$search_engine."','".$site_url."','".$client."','".$employee_url."', '".$v_code."', '".$target_location."', '".$bid."', '".$speed."', '".$positions."', '".$target_per_day."')";
             $query = $this->db->query($sql);
             $sql = "SELECT * FROM campaign WHERE employee_url='".$employee_url."'";
             $query = $this->db->query($sql);
@@ -85,8 +91,13 @@
             $keywords = $this->security->xss_clean($this->input->post('keywords'));
             $search_engine = $this->security->xss_clean($this->input->post('search_engine'));
             $site_url = $this->security->xss_clean($this->input->post('site_url'));
+            $target_location = $this->security->xss_clean($this->input->post('target_location'));
+            $bid = $this->security->xss_clean($this->input->post('bid'));
+            $speed = $this->security->xss_clean($this->input->post('speed'));
+            $positions = $this->security->xss_clean($this->input->post('positions'));
+            $target_per_day = $this->security->xss_clean($this->input->post('target_per_day'));
 
-            $sql = "UPDATE campaign SET page_title='".$page_title."', v_url='".$v_url."', c_name='".$c_name."', v_page_name='".$v_page_name."', keywords='".$keywords."', search_engine='".$search_engine."', site_url='".$site_url."' WHERE id=".$campaignId."";
+            $sql = "UPDATE campaign SET page_title='".$page_title."', v_url='".$v_url."', c_name='".$c_name."', v_page_name='".$v_page_name."', keywords='".$keywords."', search_engine='".$search_engine."', site_url='".$site_url."', target_location='".$target_location."', bid='".$bid."', speed='".$speed."', positions='".$positions."', target_per_day='".$target_per_day."' WHERE id=".$campaignId."";
             $query = $this->db->query($sql);
             return;
         }
@@ -94,8 +105,13 @@
             $default_text1 = $this->security->xss_clean($this->input->post('default_text1'));
             $default_text2 = $this->security->xss_clean($this->input->post('default_text2'));
             $default_employee_password = $this->security->xss_clean($this->input->post('default_employee_password'));
+            $default_target_location = $this->security->xss_clean($this->input->post('default_target_location'));
+            $default_bid = $this->security->xss_clean($this->input->post('default_bid'));
+            $default_speed = $this->security->xss_clean($this->input->post('default_speed'));
+            $default_positions = $this->security->xss_clean($this->input->post('default_positions'));
+            $default_target_per_day = $this->security->xss_clean($this->input->post('default_target_per_day'));
 
-            $sql = "UPDATE defaults SET default_text1='".$default_text1."', default_text2='".$default_text2."', default_employee_password='".$default_employee_password."' WHERE id=".$defaultId."";
+            $sql = "UPDATE defaults SET default_text1='".$default_text1."', default_text2='".$default_text2."', default_employee_password='".$default_employee_password."', default_target_location='".$default_target_location."', default_bid='".$default_bid."', default_speed='".$default_speed."', default_positions='".$default_positions."', default_target_per_day='".$default_target_per_day."' WHERE id=".$defaultId."";
             $query = $this->db->query($sql);
             return;
         }

@@ -23,6 +23,7 @@
 					<th>Campaign Name</th>
 					<th>Website URL</th>
 					<th>IP Address</th>
+					<th>IP Location</th>
 					<th>Browser UA</th>
 					<th>Timestamp</th>
 				</tr>
@@ -37,6 +38,7 @@
 						echo "<td>".$c_name."</td>";
 						echo "<td>".$row->website_url."</td>";
 						echo "<td>".$row->IP_address."</td>";
+						echo "<td>".$row->IP_location."</td>";
 						echo "<td>".$row->browser_UA."</td>";
 						echo "<td>".$row->timestamp."</td>";
 						echo "</tr>";
